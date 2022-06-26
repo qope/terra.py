@@ -12,7 +12,7 @@ This repo is forked from Terra SDK to be enable to handle Cosmoshub chain.
 >>> wallet.key.acc_address
 ```
 
-`''cosmos1rup4tdv6tzjxuzceqe5h2njneqcyfdz9yt2h6j'`
+`'cosmos1rup4tdv6tzjxuzceqe5h2njneqcyfdz9yt2h6j'`
 
 ## Building and Signing Transactions
 
