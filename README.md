@@ -19,7 +19,7 @@ This repo is forked from Terra SDK to be enable to handle Cosmoshub chain.
 >>> from terra_sdk.key.mnemonic import MnemonicKey
 >>> mk = MnemonicKey(mnemonic="test test test")
 >>> cosmos = LCDClient("https://api.cosmos.network")", "cosmoshub-4")
->>> wallet = cosmos.wallet(mk)
+>>> wallet = cosmos.wallet(mk, prefix="cosmos")
 ```
 
 ## Building and Signing Transactions
@@ -43,7 +43,7 @@ This repo is forked from Terra SDK to be enable to handle Cosmoshub chain.
 You should now be able to broadcast your transaction to the network.
 
 ```
->>> result = cosmo.tx.broadcast(tx)
+>>> result = cosmos.tx.broadcast(tx)
 >>> print(result)
 ```
 </div>
