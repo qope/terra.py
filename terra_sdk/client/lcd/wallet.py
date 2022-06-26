@@ -1,4 +1,5 @@
 from __future__ import annotations
+from sys import prefix
 
 from terra_sdk.key.key import Key, SignOptions
 
@@ -10,9 +11,10 @@ from ...core.tx import SignMode, Tx
 
 
 class AsyncWallet:
-    def __init__(self, lcd, key: Key):
+    def __init__(self, lcd, key: Key, prefix="cosmos"):
         self.lcd = lcd
         self.key = key
+        self.key.prefix = prefix
 
     async def account_number(self) -> int:
         res = await self.lcd.auth.account_info(self.key.acc_address)
@@ -65,9 +67,10 @@ class Wallet:
     signing functionality. It is recommended to create this object through
     :meth:`LCDClient.wallet()<terra_sdk.client.lcd.LCDClient.wallet>`."""
 
-    def __init__(self, lcd, key: Key):
+    def __init__(self, lcd, key: Key, prefix="cosmos"):
         self.lcd = lcd
         self.key = key
+        self.key.prefix = prefix
 
     def account_number(self) -> int:
         """Fetches account number for the account associated with the Key."""

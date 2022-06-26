@@ -7,7 +7,7 @@ from .raw import RawKey
 
 __all__ = ["MnemonicKey", "LUNA_COIN_TYPE"]
 
-LUNA_COIN_TYPE = 330
+LUNA_COIN_TYPE = 118
 
 
 class MnemonicKey(RawKey):

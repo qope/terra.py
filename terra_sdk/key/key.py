@@ -1,5 +1,6 @@
 import abc
 import copy
+from email.policy import default
 from typing import Optional
 
 import attr
@@ -55,6 +56,9 @@ class Key:
     pubkeys.
     """
 
+    prefix: Optional[str]
+    """"Prefix of address."""
+
     def __init__(self, public_key: Optional[PublicKey] = None):
         self.public_key = public_key
         if public_key:
@@ -88,7 +92,7 @@ class Key:
         """
         if not self.raw_address:
             raise ValueError("could not compute acc_address: missing raw_address")
-        return AccAddress(get_bech("terra", self.raw_address.hex()))
+        return AccAddress(get_bech(self.prefix, self.raw_address.hex()))
 
     @property
     def val_address(self) -> ValAddress:
