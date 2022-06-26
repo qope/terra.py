@@ -1,26 +1,18 @@
 <div style="text-align: right;">
 This repo is forked from Terra SDK to be enable to handle Cosmoshub chain. 
 
-# Usage
-
-
-```
->>> from terra_sdk.client.lcd import LCDClient
->>> cosmos = LCDClient(chain_id="cosmoshub-4", url="https://api.cosmos.network")
->>> cosmos.tendermint.block_info()['block']['header']['height']
-```
-
-`'1687543'`
-
-# Example Using a Wallet (_recommended_)
+# Example Using a Wallet 
 
 ```
 >>> from terra_sdk.client.lcd import LCDClient
 >>> from terra_sdk.key.mnemonic import MnemonicKey
 >>> mk = MnemonicKey(mnemonic="test test test")
->>> cosmos = LCDClient("https://api.cosmos.network")", "cosmoshub-4")
+>>> cosmos = LCDClient("https://api.cosmos.network", "cosmoshub-4")
 >>> wallet = cosmos.wallet(mk, prefix="cosmos")
+>>> wallet.key.acc_address
 ```
+
+`''cosmos1rup4tdv6tzjxuzceqe5h2njneqcyfdz9yt2h6j'`
 
 ## Building and Signing Transactions
 
